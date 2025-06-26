@@ -1,0 +1,12 @@
+{
+  "name": "Checklist Auto Assign",
+  "id": "your-unique-id",
+  "api": {
+    "url": "https://amberkkelley.github.io/client.js"
+  },
+  "capabilities": {
+    "card-buttons": {
+      "enabled": true
+    }
+  }
+}
