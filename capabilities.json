@@ -1,0 +1,8 @@
+{
+  "card-buttons": [
+    {
+      "text": "Assign Pre-Listing Tasks",
+      "callback": "assignChecklistItems"
+    }
+  ]
+}
