@@ -66,7 +66,43 @@ function assignChecklistItems(t, cardId, checklistId, cardMembers, liveDateStr) 
     }));
   });
 }
+// Your existing assignChecklistItems(...) function goes here
+function assignChecklistItems(...) {
+  // 👈 Your current logic (leave it exactly how you wrote it)
+}
 
-// You would call this function from a card button or popup handler
-// by passing in t, cardId, checklistId, assigned members, and the Live Date
-// Let me know if you'd like help wiring that up!
+// 👇 Add this BELOW your function
+TrelloPowerUp.initialize({
+  'card-buttons': function (t, options) {
+    return [{
+      icon: 'https://cdn-icons-png.flaticon.com/512/1828/1828911.png',
+      text: 'Assign Pre-Listing Tasks',
+      callback: function (t) {
+        return t.card('id', 'members')
+          .then(card => {
+            return t.get('card', 'shared', 'liveDate')
+              .then(customLiveDate => {
+                return t.checklists('all').then(allLists => {
+                  const checklist = allLists.find(cl => cl.name === "Pre Listing Checklist");
+                  if (!checklist) {
+                    alert("Checklist not found.");
+                    return;
+                  }
+
+                  return assignChecklistItems(
+                    t,
+                    card.id,
+                    checklist.id,
+                    card.members,
+                    customLiveDate
+                  ).then(() => {
+                    alert('Checklist items assigned!');
+                  });
+                });
+              });
+          });
+      }
+    }];
+  }
+});
+
