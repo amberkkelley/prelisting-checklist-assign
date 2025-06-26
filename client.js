@@ -1,5 +1,4 @@
-// This is your custom Trello Power-Up logic to assign checklist items
-// and apply due dates based on the "Live Date" custom field.
+/* global TrelloPowerUp */
 
 const CHECKLIST_NAME = "Pre Listing Checklist";
 const CUSTOM_FIELD_NAME = "Live Date";
@@ -28,7 +27,7 @@ const CHECKLIST_CONFIG = {
   "Confirm staging is complete": { member: "abby", daysBefore: 3 },
   "Confirm photos are complete": { member: "abby", daysBefore: 3 },
   "Pay photo invoice / save to COGS folder": { member: "amber", daysBefore: 3 },
-  // ...continue adding the rest of your checklist following this same pattern
+  // Add more items here if needed
 };
 
 const MEMBER_IDS = {
@@ -66,12 +65,7 @@ function assignChecklistItems(t, cardId, checklistId, cardMembers, liveDateStr) 
     }));
   });
 }
-// Your existing assignChecklistItems(...) function goes here
-function assignChecklistItems(...) {
-  // 👈 Your current logic (leave it exactly how you wrote it)
-}
 
-// 👇 Add this BELOW your function
 TrelloPowerUp.initialize({
   'card-buttons': function (t, options) {
     return [{
@@ -105,4 +99,5 @@ TrelloPowerUp.initialize({
     }];
   }
 });
+
 
