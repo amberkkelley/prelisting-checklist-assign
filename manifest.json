@@ -1,8 +1,8 @@
 {
   "name": "Checklist Auto Assign",
-  "id": "your-unique-id",
+  "id": "checklist-auto-assign",
   "api": {
-    "url": "https://github.com/amberkkelley/prelisting-checklist-assign/blob/main/client.js"
+    "url": "https://amberkkelley.github.io/prelisting-checklist-assign/client.js"
   },
   "capabilities": {
     "card-buttons": {
