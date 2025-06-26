@@ -99,5 +99,3 @@ TrelloPowerUp.initialize({
     }];
   }
 });
-
-
